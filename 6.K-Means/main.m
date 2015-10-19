@@ -1,0 +1,14 @@
+clear;
+load('MFCCfeatures.mat');
+features = [VowelFeatures(:,4), VowelFeatures(:,5), VowelFeatures(:,8)];
+figure;
+plot3(VowelFeatures(:,4), VowelFeatures(:,5), VowelFeatures(:,8),'yx','MarkerSize',7);
+%fprintf('Program paused. Press enter to continue.\n');
+%pause;
+[x,y] = MyKmeans(features,8,@cal_distance);
+%[y,x] = kmeans(features,8);
+%[x,y] = BiKmeans(features,8,@cal_distance);
+hold on;
+plot3(x(:,1),x(:,2),x(:,3),'k*','MarkerSize',12);
+%hold on;
+%plot3(y1(:,1),y1(:,2),y1(:,3),'rx','MarkerSize',10);
